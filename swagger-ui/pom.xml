@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.microprofile-ext</groupId>
+        <artifactId>openapi-ext</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    
+    <groupId>org.microprofile-ext.openapi-ext</groupId>
+    <artifactId>swagger-ui</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    
+    <name>Microprofile OpenApi Extensions :: Swagger UI</name>
+    <description>A swagger ui for MicroProfile Open API</description>
+    
+    <properties>
+        <swagger-ui.version>3.18.2</swagger-ui.version>
+        <swagger.ui.themes.version>3.0.0</swagger.ui.themes.version>
+    </properties>
+    
+    <dependencies>
+        
+        <!-- Servlet (assume we have this due to JAX-RS ?? --> 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- Swagger UI -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>${swagger-ui.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>swagger-ui-themes</artifactId>
+            <version>${swagger.ui.themes.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+                
+        <!-- Copy all web content files META-INF folder, and push it though a filter to replace maven properties -->
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/webapp</directory>
+                <targetPath>${project.build.directory}/classes/META-INF/resources</targetPath>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.css</include>
+                    <include>**/*.html</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/webapp</directory>
+                <targetPath>${project.build.directory}/classes/META-INF/resources</targetPath>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/*.css</exclude>
+                    <exclude>**/*.html</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        
+    </build>
+</project>
