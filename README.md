@@ -7,6 +7,4 @@
 
 Here you will find some extra tools for Open API
 
-## Swagger UI
-
-@TODO
+* [Swagger UI](https://github.com/microprofile-extensions/openapi-ext/tree/master/swagger-ui)

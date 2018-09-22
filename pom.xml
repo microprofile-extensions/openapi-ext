@@ -169,6 +169,7 @@
             </build>
         </profile>
     </profiles>
+    
     <modules>
         <module>swagger-ui</module>
     </modules>
