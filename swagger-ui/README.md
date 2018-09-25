@@ -18,6 +18,7 @@ In your ```pom.xml```:
         <artifactId>swagger-ui</artifactId>
         <version>XXXX</version>
     </dependency>
+
 ```
 
 This will pull in Swagger UI via [webjars](http://webjars.org/) and generate the ```index.html``` from a template that you can configure using [MicroProfile Config API](https://github.com/eclipse/microprofile-config).
