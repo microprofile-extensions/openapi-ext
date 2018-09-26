@@ -1,5 +1,8 @@
 # OpenApi Extensions | Swagger UI
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.microprofile-ext.openapi-ext/swagger-ui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.microprofile-ext.openapi-ext/swagger-ui)
+[![Javadocs](https://www.javadoc.io/badge/org.microprofile-ext.openapi-ext/swagger-ui.svg)](https://www.javadoc.io/doc/org.microprofile-ext.openapi-ext/swagger-ui)
+
 This library adds Swagger UI to MicroProfile OpenAPI.
 
 Read more about OpenAPI here: 
