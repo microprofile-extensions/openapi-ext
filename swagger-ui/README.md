@@ -20,6 +20,7 @@ In your ```pom.xml```:
         <groupId>org.microprofile-ext.openapi-ext</groupId>
         <artifactId>swagger-ui</artifactId>
         <version>XXXX</version>
+        <scope>runtime</scope>
     </dependency>
 
 ```
