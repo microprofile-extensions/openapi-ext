@@ -42,6 +42,7 @@ Using the Config API you can Personalize the UI. Here are the config keys you ca
 * **openapi-ui.title** - Adds the title in the window. Defaults to "MicroProfile - Open API".
 * **openapi-ui.serverInfo** - Adds info on the server. Defaults to the system server info.
 * **openapi-ui.contextRoot** - Adds the context root. Defaults to the current value.
+* **openapi-ui.yamlUrl** - The URL for the OpenApi yaml. Defaults to /openapi
 * **openapi-ui.swaggerUiTheme** - Use a theme from swagger-ui-themes. Defaults to "flattop".
 * **openapi-ui.swaggerHeaderVisibility** - Show/hide the swagger logo header. Defaults to "visible".
 * **openapi-ui.exploreFormVisibility** - Show/hide the explore form. Defaults to "hidden".

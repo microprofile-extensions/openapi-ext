@@ -80,6 +80,7 @@ public class Templates {
         String html = getHTMLTemplate();
         
         html = html.replaceAll(VAR_CONTEXT_ROOT, getContextRoot(uriInfo,request));
+        html = html.replaceAll(VAR_YAML_URL, yamlUrl);
         html = html.replaceAll(VAR_CURRENT_YEAR, getCopyrightYear());
         
         // Dynamic whitelabel properties.
@@ -227,7 +228,7 @@ public class Templates {
         return KNOWN_PROPERTIES.contains(key);
     }
     
-    private static final List<String> KNOWN_PROPERTIES = Arrays.asList(new String[]{"openapi-ui.serverVisibility","openapi-ui.exploreFormVisibility","openapi-ui.swaggerHeaderVisibility","openapi-ui.copyrightBy","openapi-ui.copyrightYear","openapi-ui.title","openapi-ui.serverInfo","openapi-ui.contextRoot","openapi-ui.swaggerUiTheme"});
+    private static final List<String> KNOWN_PROPERTIES = Arrays.asList(new String[]{"openapi-ui.serverVisibility","openapi-ui.exploreFormVisibility","openapi-ui.swaggerHeaderVisibility","openapi-ui.copyrightBy","openapi-ui.copyrightYear","openapi-ui.title","openapi-ui.serverInfo","openapi-ui.contextRoot","openapi-ui.yamlUrl","openapi-ui.swaggerUiTheme"});
     
     @Inject @ConfigProperty(name = "openapi-ui.copyrightBy", defaultValue = "")
     private String copyrightBy;
@@ -243,6 +244,9 @@ public class Templates {
     
     @Inject @ConfigProperty(name = "openapi-ui.contextRoot", defaultValue = "")
     private String contextRoot;
+    
+    @Inject @ConfigProperty(name = "openapi-ui.yamlUrl", defaultValue = "/openapi")
+    private String yamlUrl;
     
     @Inject @ConfigProperty(name = "openapi-ui.swaggerUiTheme", defaultValue = "flattop")
     private String swaggerUiTheme;
@@ -267,6 +271,8 @@ public class Templates {
     private static final String VAR_CURRENT_YEAR = "%currentYear%";
     private static final String VAR_SERVER_INFO = "%serverInfo%";
     private static final String VAR_CONTEXT_ROOT = "%contextRoot%";
+    private static final String VAR_YAML_URL = "%yamlUrl%";
+    
     private static final String VAR_SWAGGER_THEME = "%swaggerUiTheme%";
     private static final String VAR_SWAGGER_HEADER_VISIBILITY = "%swaggerHeaderVisibility%";
     private static final String VAR_EXPLORE_FORM_VISIBILITY = "%exploreFormVisibility%";
