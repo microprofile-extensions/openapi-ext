@@ -16,13 +16,13 @@
     <description>A swagger ui for MicroProfile Open API</description>
     
     <properties>
-        <swagger-ui.version>3.18.2</swagger-ui.version>
+        <swagger-ui.version>3.19.4</swagger-ui.version>
         <swagger.ui.themes.version>3.0.0</swagger.ui.themes.version>
     </properties>
     
     <dependencies>
         
-        <!-- Servlet (assume we have this due to JAX-RS ?? --> 
+        <!-- Servlet (TODO: we can not assume we have this) --> 
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
