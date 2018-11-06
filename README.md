@@ -5,4 +5,4 @@
 ___________
 Here you will find some extra tools for Open API
 
-* [Swagger UI](https://github.com/microprofile-extensions/openapi-ext/tree/master/swagger-ui)
+* [Swagger UI](https://github.com/microprofile-extensions/openapi-ext/blob/master/swagger-ui/README.md)
