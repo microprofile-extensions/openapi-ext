@@ -1,3 +1,5 @@
+[Back to openapi-ext](https://github.com/microprofile-extensions/openapi-ext/blob/master/README.md)
+
 # OpenApi Extensions | Swagger UI
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.microprofile-ext.openapi-ext/swagger-ui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.microprofile-ext.openapi-ext/swagger-ui)
