@@ -172,5 +172,6 @@
     
     <modules>
         <module>swagger-ui</module>
+        <module>openapi-example</module>
     </modules>
 </project>
