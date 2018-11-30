@@ -8,3 +8,7 @@ ___________
 Here you will find some extra tools for Open API
 
 * [Swagger UI](https://github.com/microprofile-extensions/openapi-ext/blob/master/swagger-ui/README.md)
+
+## Example
+
+Also look at the [example application](https://github.com/microprofile-extensions/openapi-ext/blob/master/openapi-example/README.md) to see how this is used
