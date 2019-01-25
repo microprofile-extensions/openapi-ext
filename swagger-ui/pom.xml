@@ -16,7 +16,7 @@
     <description>A swagger ui for MicroProfile Open API</description>
     
     <properties>
-        <swagger-ui.version>3.19.5</swagger-ui.version>
+        <swagger-ui.version>3.20.5</swagger-ui.version>
         <swagger.ui.themes.version>3.0.0</swagger.ui.themes.version>
     </properties>
     
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
         
