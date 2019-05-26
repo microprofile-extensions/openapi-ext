@@ -51,7 +51,7 @@ Using the Config API you can Personalize the UI. Here are the config keys you ca
 * **openapi-ui.serverVisibility** - Show/hide the server selection. Defaults to "hidden".
 * **openapi-ui.createdWithVisibility** - Show/hide the created with footer. Defaults to "visible".
 
-Example: Adding this to ```META-INF/microprofile.properties```
+Example: Adding this to ```META-INF/microprofile-config.properties```
 
 ```
 
