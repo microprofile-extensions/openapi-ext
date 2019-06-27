@@ -39,26 +39,26 @@ http://localhost:8080/example/api/openapi-ui/
 
 Using the Config API you can Personalize the UI. Here are the config keys you can use:
 
-* **openapi-ui.copyrightBy** - Adds a name to the copyright in the footer. Defaults to none.
-* **openapi-ui.copyrightYear** - Adds the copyright year. Defaults to current year.
-* **openapi-ui.title** - Adds the title in the window. Defaults to "MicroProfile - Open API".
-* **openapi-ui.serverInfo** - Adds info on the server. Defaults to the system server info.
-* **openapi-ui.contextRoot** - Adds the context root. Defaults to the current value.
-* **openapi-ui.yamlUrl** - The URL for the OpenApi yaml. Defaults to /openapi
-* **openapi-ui.swaggerUiTheme** - Use a theme from swagger-ui-themes. Defaults to "flattop".
-* **openapi-ui.swaggerHeaderVisibility** - Show/hide the swagger logo header. Defaults to "visible".
-* **openapi-ui.exploreFormVisibility** - Show/hide the explore form. Defaults to "hidden".
-* **openapi-ui.serverVisibility** - Show/hide the server selection. Defaults to "hidden".
-* **openapi-ui.createdWithVisibility** - Show/hide the created with footer. Defaults to "visible".
+* **openapi.ui.copyrightBy** - Adds a name to the copyright in the footer. Defaults to none.
+* **openapi.ui.copyrightYear** - Adds the copyright year. Defaults to current year.
+* **openapi.ui.title** - Adds the title in the window. Defaults to "MicroProfile - Open API".
+* **openapi.ui.serverInfo** - Adds info on the server. Defaults to the system server info.
+* **openapi.ui.contextRoot** - Adds the context root. Defaults to the current value.
+* **openapi.ui.yamlUrl** - The URL for the OpenApi yaml. Defaults to /openapi
+* **openapi.ui.swaggerUiTheme** - Use a theme from swagger-ui-themes. Defaults to "flattop".
+* **openapi.ui.swaggerHeaderVisibility** - Show/hide the swagger logo header. Defaults to "visible".
+* **openapi.ui.exploreFormVisibility** - Show/hide the explore form. Defaults to "hidden".
+* **openapi.ui.serverVisibility** - Show/hide the server selection. Defaults to "hidden".
+* **openapi.ui.createdWithVisibility** - Show/hide the created with footer. Defaults to "visible".
 
 Example: Adding this to ```META-INF/microprofile-config.properties```
 
 ```
 
-    openapi-ui.copyrightBy=Phillip Kruger
-    openapi-ui.title=My awesome services
-    openapi-ui.swaggerHeaderVisibility=hidden
-    openapi-ui.serverVisibility=visible
+    openapi.ui.copyrightBy=Phillip Kruger
+    openapi.ui.title=My awesome services
+    openapi.ui.swaggerHeaderVisibility=hidden
+    openapi.ui.serverVisibility=visible
 ```
 
 will change the UI:
@@ -71,7 +71,7 @@ The default UI uses the flattop theme from [swagger-ui-themes](http://meostrande
 
 ```
 
-    openapi-ui.swaggerUiTheme=monokai
+    openapi.ui.swaggerUiTheme=monokai
 ```
 
 ![swagger-ui](configured2.png)
