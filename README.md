@@ -12,3 +12,6 @@ Here you will find some extra tools for Open API
 ## Example
 
 Also look at the [example application](https://github.com/microprofile-extensions/openapi-ext/blob/master/openapi-example/README.md) to see how this is used
+
+# Notification
+This project is moving to smallrye[https://smallrye.io/]
