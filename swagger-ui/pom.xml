@@ -4,12 +4,11 @@
     <parent>
         <groupId>org.microprofile-ext</groupId>
         <artifactId>openapi-ext</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
     </parent>
     
     <groupId>org.microprofile-ext.openapi-ext</groupId>
     <artifactId>swagger-ui</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     
     <name>Microprofile OpenApi Extensions :: Swagger UI</name>

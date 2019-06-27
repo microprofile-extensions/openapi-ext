@@ -4,12 +4,11 @@
     <parent>
         <groupId>org.microprofile-ext</groupId>
         <artifactId>openapi-ext</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
     </parent>
     
     <groupId>org.microprofile-ext.openapi-ext</groupId>
     <artifactId>openapi-example</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
     <packaging>war</packaging>
     
     <name>Microprofile OpenApi Extensions :: Example</name>
