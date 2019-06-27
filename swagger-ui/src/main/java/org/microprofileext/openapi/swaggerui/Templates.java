@@ -228,39 +228,39 @@ public class Templates {
         return KNOWN_PROPERTIES.contains(key);
     }
     
-    private static final List<String> KNOWN_PROPERTIES = Arrays.asList(new String[]{"openapi-ui.serverVisibility","openapi-ui.exploreFormVisibility","openapi-ui.swaggerHeaderVisibility","openapi-ui.copyrightBy","openapi-ui.copyrightYear","openapi-ui.title","openapi-ui.serverInfo","openapi-ui.contextRoot","openapi-ui.yamlUrl","openapi-ui.swaggerUiTheme"});
+    private static final List<String> KNOWN_PROPERTIES = Arrays.asList(new String[]{"openapi.ui.serverVisibility","openapi.ui.exploreFormVisibility","openapi.ui.swaggerHeaderVisibility","openapi.ui.copyrightBy","openapi.ui.copyrightYear","openapi.ui.title","openapi.ui.serverInfo","openapi.ui.contextRoot","openapi.ui.yamlUrl","openapi.ui.swaggerUiTheme"});
     
-    @Inject @ConfigProperty(name = "openapi-ui.copyrightBy", defaultValue = "")
+    @Inject @ConfigProperty(name = "openapi.ui.copyrightBy", defaultValue = "")
     private String copyrightBy;
     
-    @Inject @ConfigProperty(name = "openapi-ui.copyrightYear", defaultValue = "")
+    @Inject @ConfigProperty(name = "openapi.ui.copyrightYear", defaultValue = "")
     private String copyrightYear;
     
-    @Inject @ConfigProperty(name = "openapi-ui.title", defaultValue = "MicroProfile - Open API")
+    @Inject @ConfigProperty(name = "openapi.ui.title", defaultValue = "MicroProfile - Open API")
     private String title;
     
-    @Inject @ConfigProperty(name = "openapi-ui.serverInfo", defaultValue = "")
+    @Inject @ConfigProperty(name = "openapi.ui.serverInfo", defaultValue = "")
     private String serverInfo;
     
-    @Inject @ConfigProperty(name = "openapi-ui.contextRoot", defaultValue = "")
+    @Inject @ConfigProperty(name = "openapi.ui.contextRoot", defaultValue = "")
     private String contextRoot;
     
-    @Inject @ConfigProperty(name = "openapi-ui.yamlUrl", defaultValue = "/openapi")
+    @Inject @ConfigProperty(name = "openapi.ui.yamlUrl", defaultValue = "/openapi")
     private String yamlUrl;
     
-    @Inject @ConfigProperty(name = "openapi-ui.swaggerUiTheme", defaultValue = "flattop")
+    @Inject @ConfigProperty(name = "openapi.ui.swaggerUiTheme", defaultValue = "flattop")
     private String swaggerUiTheme;
     
-    @Inject @ConfigProperty(name = "openapi-ui.swaggerHeaderVisibility", defaultValue = "visible")
+    @Inject @ConfigProperty(name = "openapi.ui.swaggerHeaderVisibility", defaultValue = "visible")
     private String swaggerHeaderVisibility;
     
-    @Inject @ConfigProperty(name = "openapi-ui.exploreFormVisibility", defaultValue = "hidden")
+    @Inject @ConfigProperty(name = "openapi.ui.exploreFormVisibility", defaultValue = "hidden")
     private String exploreFormVisibility;
     
-    @Inject @ConfigProperty(name = "openapi-ui.serverVisibility", defaultValue = "hidden")
+    @Inject @ConfigProperty(name = "openapi.ui.serverVisibility", defaultValue = "hidden")
     private String serverVisibility;
     
-    @Inject @ConfigProperty(name = "openapi-ui.createdWithVisibility", defaultValue = "visible")
+    @Inject @ConfigProperty(name = "openapi.ui.createdWithVisibility", defaultValue = "visible")
     private String createdWithVisibility;
     
     @Inject 
@@ -288,6 +288,6 @@ public class Templates {
     private static final String FILE_TEMPLATE = "META-INF/resources/templates/template.html";
     private static final String FILE_LOGO = "META-INF/resources/templates/logo.png";
     private static final String FILE_STYLE = "META-INF/resources/templates/style.css";
-    private static final String KEY_IDENTIFIER = "openapi-ui.";
+    private static final String KEY_IDENTIFIER = "openapi.ui.";
 
 }
