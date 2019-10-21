@@ -15,7 +15,7 @@
     <description>A swagger ui for MicroProfile Open API</description>
     
     <properties>
-        <swagger-ui.version>3.20.5</swagger-ui.version>
+        <swagger-ui.version>3.23.8</swagger-ui.version>
         <swagger.ui.themes.version>3.0.0</swagger.ui.themes.version>
     </properties>
     
