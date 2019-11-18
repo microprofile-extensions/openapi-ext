@@ -17,7 +17,7 @@ import lombok.extern.java.Log;
  * @author Phillip Kruger (phillip.kruger@redhat.com)
  */
 @Log
-@Path("{path: ^webjars\\/.*}")
+@Path("{path: webjars/.*}")
 public class StaticResourcesService {
 
     @GET
