@@ -28,8 +28,12 @@ public class StaticResourcesService {
             buffer.lines().forEach(stringWriter::write);
 
             String response = stringWriter.toString();
-            if(response!=null && !response.isEmpty()){
-                return Response.ok(response).build();
+            if (response != null && !response.isEmpty()) {
+                Response.ResponseBuilder ret = Response.ok(response);
+                if (path.endsWith(".js")) {
+                    ret = ret.type("application/javascript");
+                }
+                return ret.build();
             }
         } catch (IOException ex) {
             log.severe(ex.getMessage());
