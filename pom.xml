@@ -6,7 +6,7 @@
     
     <groupId>org.microprofile-ext</groupId>
     <artifactId>openapi-ext</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <packaging>pom</packaging>
     
     <name>Microprofile OpenAPI Extensions</name>
@@ -56,8 +56,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         
-        <lombok.version>1.18.8</lombok.version>
-        <microProfile.version>2.2</microProfile.version>
+        <lombok.version>1.18.10</lombok.version>
+        <microProfile.version>3.2</microProfile.version>
     </properties>
     
     <dependencyManagement>
