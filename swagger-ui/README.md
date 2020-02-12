@@ -42,7 +42,6 @@ Using the Config API you can Personalize the UI. Here are the config keys you ca
 * **openapi.ui.copyrightBy** - Adds a name to the copyright in the footer. Defaults to none.
 * **openapi.ui.copyrightYear** - Adds the copyright year. Defaults to current year.
 * **openapi.ui.title** - Adds the title in the window. Defaults to "MicroProfile - Open API".
-* **openapi.ui.serverInfo** - Adds info on the server. Defaults to the system server info.
 * **openapi.ui.contextRoot** - Adds the context root. Defaults to the current value.
 * **openapi.ui.yamlUrl** - The URL for the OpenApi yaml. Defaults to /openapi
 * **openapi.ui.swaggerUiTheme** - Use a theme from swagger-ui-themes. Defaults to "flattop".

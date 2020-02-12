@@ -3,12 +3,12 @@ package org.microprofileext.openapi.swaggerui;
 import java.net.URI;
 import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -31,8 +31,8 @@ public class OpenApiUiService {
     private UriInfo uriInfo;
     
     @Context 
-    private HttpServletRequest request;
-      
+    private HttpHeaders httpHeaders;
+    
     @GET
     @Produces("image/png")
     @Path("favicon-{size}.png")
@@ -54,7 +54,8 @@ public class OpenApiUiService {
     @Path(INDEX_HTML)
     @Operation(hidden = true)
     public Response getOpenApiUI(){
-        String swaggerUI = templates.getSwaggerUIHtml(uriInfo,request);
+        RequestInfo requestInfo = new RequestInfo(uriInfo, httpHeaders);
+        String swaggerUI = templates.getSwaggerUIHtml(requestInfo);
         return Response.ok(swaggerUI, MediaType.TEXT_HTML).build();
     }
     
