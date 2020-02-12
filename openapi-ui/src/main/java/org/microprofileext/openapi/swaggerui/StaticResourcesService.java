@@ -11,6 +11,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import lombok.extern.java.Log;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 
 /**
  * Serving static data from webjars
@@ -21,6 +22,7 @@ import lombok.extern.java.Log;
 public class StaticResourcesService {
 
     @GET
+    @Operation(hidden = true)
     public Response staticJsResources(@PathParam("path") final String path) {
         try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(String.format("META-INF/resources/%s", path));
                 BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream));

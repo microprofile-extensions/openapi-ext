@@ -16,8 +16,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.core.UriInfo;
 import lombok.Getter;
 import lombok.extern.java.Log;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -64,9 +62,9 @@ public class Templates {
         
     }
     
-    public String getSwaggerUIHtml(UriInfo uriInfo,HttpServletRequest request){
+    public String getSwaggerUIHtml(RequestInfo requestInfo){
         if(this.swaggerUIHtml==null){
-            this.swaggerUIHtml = parseHtmlTemplate(uriInfo,request);
+            this.swaggerUIHtml = parseHtmlTemplate(requestInfo);
         }
         return this.swaggerUIHtml;
     }
@@ -76,10 +74,10 @@ public class Templates {
         return getFavicon16();
     }
     
-    private String parseHtmlTemplate(UriInfo uriInfo, HttpServletRequest request){
+    private String parseHtmlTemplate(RequestInfo requestInfo){
         String html = getHTMLTemplate();
         
-        html = html.replaceAll(VAR_CONTEXT_ROOT, getContextRoot(uriInfo,request));
+        html = html.replaceAll(VAR_CONTEXT_ROOT, getContextRoot(requestInfo));
         html = html.replaceAll(VAR_YAML_URL, yamlUrl);
         html = html.replaceAll(VAR_CURRENT_YEAR, getCopyrightYear());
         
@@ -99,32 +97,29 @@ public class Templates {
         html = html.replaceAll(VAR_COPYRIGHT_BY, copyrightBy);
         html = html.replaceAll(VAR_TITLE, title);
         html = html.replaceAll(VAR_SWAGGER_THEME, swaggerUiTheme);
-        html = html.replaceAll(VAR_SERVER_INFO, getServerInfo(request));
         
         return html;
     }
     
-    private static final String X_REQUEST_URI = "x-request-uri";
-    private String getOriginalContextPath(UriInfo uriInfo,HttpServletRequest request){
-        String fromHeader = request.getHeader(X_REQUEST_URI);
-        
-        if(fromHeader!=null && !fromHeader.isEmpty()){
-            return getContextPathPart(uriInfo,request,fromHeader);
+    private String getOriginalContextPath(RequestInfo requestInfo){
+        String xRequestUriHeader = requestInfo.getHttpHeaders().getHeaderString(X_REQUEST_URI);
+        if(xRequestUriHeader!=null && !xRequestUriHeader.isEmpty()){
+            return getContextPathPart(requestInfo,xRequestUriHeader);
         }
-        return request.getContextPath();
+        return requestInfo.getContextPath();
     }
     
-    private String getContextPathPart(UriInfo uriInfo,HttpServletRequest request, String fromHeader){
+    private String getContextPathPart(RequestInfo requestInfo,String xRequestUriHeader){
         
-        String restBase = request.getServletPath();
-        String restUrl = restBase + uriInfo.getPath();
+        String restBase = requestInfo.getRestPath();
+        String restUrl = restBase + requestInfo.getUriInfo().getPath();
         
-        int restUrlStart = fromHeader.indexOf(restUrl);
+        int restUrlStart = xRequestUriHeader.indexOf(restUrl);
         
         if(restUrlStart>0){
-            return fromHeader.substring(0, restUrlStart);
+            return xRequestUriHeader.substring(0, restUrlStart);
         }else{
-            return fromHeader;
+            return xRequestUriHeader;
         }
         
     }
@@ -210,16 +205,9 @@ public class Templates {
         return copyrightYear;
     }
     
-    private String getServerInfo(HttpServletRequest request){
-        if(serverInfo==null || serverInfo.isEmpty()){
-            return request.getServletContext().getServerInfo();
-        }
-        return serverInfo;
-    }
-    
-    private String getContextRoot(UriInfo uriInfo,HttpServletRequest request){
+    private String getContextRoot(RequestInfo requestInfo){
         if(contextRoot==null || contextRoot.isEmpty()){
-            return getOriginalContextPath(uriInfo,request);
+            this.contextRoot = getOriginalContextPath(requestInfo);
         }
         return contextRoot;
     }
@@ -228,7 +216,8 @@ public class Templates {
         return KNOWN_PROPERTIES.contains(key);
     }
     
-    private static final List<String> KNOWN_PROPERTIES = Arrays.asList(new String[]{"openapi.ui.serverVisibility","openapi.ui.exploreFormVisibility","openapi.ui.swaggerHeaderVisibility","openapi.ui.copyrightBy","openapi.ui.copyrightYear","openapi.ui.title","openapi.ui.serverInfo","openapi.ui.contextRoot","openapi.ui.yamlUrl","openapi.ui.swaggerUiTheme"});
+    private static final String X_REQUEST_URI = "x-request-uri";
+    private static final List<String> KNOWN_PROPERTIES = Arrays.asList(new String[]{"openapi.ui.serverVisibility","openapi.ui.exploreFormVisibility","openapi.ui.swaggerHeaderVisibility","openapi.ui.copyrightBy","openapi.ui.copyrightYear","openapi.ui.title","openapi.ui.contextRoot","openapi.ui.yamlUrl","openapi.ui.swaggerUiTheme"});
     
     @Inject @ConfigProperty(name = "openapi.ui.copyrightBy", defaultValue = "")
     private String copyrightBy;
@@ -238,9 +227,6 @@ public class Templates {
     
     @Inject @ConfigProperty(name = "openapi.ui.title", defaultValue = "MicroProfile - Open API")
     private String title;
-    
-    @Inject @ConfigProperty(name = "openapi.ui.serverInfo", defaultValue = "")
-    private String serverInfo;
     
     @Inject @ConfigProperty(name = "openapi.ui.contextRoot", defaultValue = "")
     private String contextRoot;
@@ -269,7 +255,6 @@ public class Templates {
     private static final String VAR_COPYRIGHT_BY = "%copyrighBy%";
     private static final String VAR_TITLE = "%title%";
     private static final String VAR_CURRENT_YEAR = "%currentYear%";
-    private static final String VAR_SERVER_INFO = "%serverInfo%";
     private static final String VAR_CONTEXT_ROOT = "%contextRoot%";
     private static final String VAR_YAML_URL = "%yamlUrl%";
     
@@ -289,5 +274,4 @@ public class Templates {
     private static final String FILE_LOGO = "META-INF/resources/templates/logo.png";
     private static final String FILE_STYLE = "META-INF/resources/templates/style.css";
     private static final String KEY_IDENTIFIER = "openapi.ui.";
-
 }
