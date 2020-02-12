@@ -97,7 +97,6 @@
                         <configuration>
                             <properties>
                                 <thorntail.context.path>/${project.build.finalName}</thorntail.context.path>
-                                <thorntail.port.offset>1000</thorntail.port.offset>
                             </properties>
                         </configuration>
                     </plugin>
