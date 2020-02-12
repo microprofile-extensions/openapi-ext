@@ -1,9 +1,9 @@
 [Back to openapi-ext](https://github.com/microprofile-extensions/openapi-ext/blob/master/README.md)
 
-# Swagger UI
+# OpenAPI UI
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.microprofile-ext.openapi-ext/swagger-ui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.microprofile-ext.openapi-ext/swagger-ui)
-[![Javadocs](https://www.javadoc.io/badge/org.microprofile-ext.openapi-ext/swagger-ui.svg)](https://www.javadoc.io/doc/org.microprofile-ext.openapi-ext/swagger-ui)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.microprofile-ext.openapi-ext/opanapi-ui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.microprofile-ext.openapi-ext/openapi-ui)
+[![Javadocs](https://www.javadoc.io/badge/org.microprofile-ext.openapi-ext/openapi-ui.svg)](https://www.javadoc.io/doc/org.microprofile-ext.openapi-ext/openapi-ui)
 
 This library adds Swagger UI to MicroProfile OpenAPI.
 
@@ -20,7 +20,7 @@ In your ```pom.xml```:
 
     <dependency>
         <groupId>org.microprofile-ext.openapi-ext</groupId>
-        <artifactId>swagger-ui</artifactId>
+        <artifactId>openapi-ui</artifactId>
         <version>XXXX</version>
         <scope>runtime</scope>
     </dependency>

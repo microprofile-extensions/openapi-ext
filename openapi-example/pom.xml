@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>swagger-ui</artifactId>
+            <artifactId>openapi-ui</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
