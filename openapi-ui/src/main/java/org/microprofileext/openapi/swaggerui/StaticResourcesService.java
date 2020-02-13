@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import javax.ws.rs.GET;
@@ -27,8 +26,8 @@ public class StaticResourcesService {
     @Operation(hidden = true)
     public Response staticJsResources(@PathParam("path") final String path) {
         try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(String.format("META-INF/resources/%s", path));
-             BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-             StringWriter stringWriter = new StringWriter()) {
+                BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+                StringWriter stringWriter = new StringWriter()) {
             buffer.lines().forEach(stringWriter::write);
 
             String response = stringWriter.toString();
