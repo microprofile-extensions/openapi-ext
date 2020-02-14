@@ -14,6 +14,7 @@ import org.eclipse.microprofile.openapi.annotations.servers.Server;
  * @author <a href="mailto:phillip.kruger@phillip-kruger.com">Phillip Kruger</a>
  */
 @ApplicationPath("/api")
+//@ApplicationPath("/")
 @OpenAPIDefinition(info = @Info(
         title = "Person service", 
         version = "1.0.0",
@@ -23,6 +24,7 @@ import org.eclipse.microprofile.openapi.annotations.servers.Server;
                 url = "http://www.phillip-kruger.com")
         ),
         servers = {
+//            @Server(url = "/",description = "localhost no context"),
             @Server(url = "/openapi-example",description = "localhost")        
         }
 )
