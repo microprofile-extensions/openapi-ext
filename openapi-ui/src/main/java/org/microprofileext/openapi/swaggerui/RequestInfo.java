@@ -5,12 +5,13 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.UriInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * Holding info about the request
  * @author Phillip Kruger (phillip.kruger@redhat.com)
  */
-@AllArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
 public class RequestInfo {
     @Getter
     private UriInfo uriInfo;
@@ -18,28 +19,34 @@ public class RequestInfo {
     private HttpHeaders httpHeaders;
     
     public String getContextPath(){
-        if(!isValid())return EMPTY;
-        
+        if(!isValid())return EMPTY;   
         String path = this.uriInfo.getBaseUri().getPath();
+        return getContextPath(path);
+    }
+    
+    public String getContextPath(String path){
         if(path.startsWith(SLASH))path = path.substring(1);
         if(path.endsWith(SLASH))path = path.substring(0, path.length());
         if(path.contains(SLASH)){
             return SLASH + path.substring(0,path.indexOf(SLASH));
         } else {
-            return SLASH + path;
+            return EMPTY; // Asume no context path ?
         }
     }
     
     public String getRestPath(){
         if(!isValid())return EMPTY;
-        
         String path = this.uriInfo.getBaseUri().getPath();
+        return getRestPath(path);
+    }
+    
+    public String getRestPath(String path){
         if(path.startsWith(SLASH))path = path.substring(1);
         if(path.endsWith(SLASH))path = path.substring(0, path.length()-1);
         if(path.contains(SLASH)){
             return path.substring(path.indexOf(SLASH));
         } else {
-            return SLASH;
+            return SLASH + path;
         }
     }
     

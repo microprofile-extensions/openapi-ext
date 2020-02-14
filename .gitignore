@@ -24,3 +24,4 @@ hs_err_pid*
 /swagger-ui/target/
 /openapi-example/target/
 /openapi-ui/target/
+/openapi-ui/nbproject/
