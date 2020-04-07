@@ -38,7 +38,7 @@ public class StaticResourcesService {
                 }
                 return ret.build();
             }
-        } catch (IOException ex) {
+        } catch (IOException | NullPointerException ex) {
             log.severe(ex.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }

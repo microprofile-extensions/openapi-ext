@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
@@ -94,7 +95,7 @@ public class Templates {
             log.log(Level.WARNING, "Can not replace dynamic properties in the Open API Swagger template. {0}", uoe.getMessage());
         }
         // Then properties with defaults.
-        html = html.replaceAll(VAR_COPYRIGHT_BY, copyrightBy);
+        html = html.replaceAll(VAR_COPYRIGHT_BY, getCopyrightBy());
         html = html.replaceAll(VAR_TITLE, title);
         html = html.replaceAll(VAR_SWAGGER_THEME, swaggerUiTheme);
         
@@ -199,17 +200,24 @@ public class Templates {
     }
     
     private String getCopyrightYear(){
-        if(copyrightYear==null || copyrightYear.isEmpty()){
-            return String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+        if(copyrightYear.isPresent()){
+            return copyrightYear.get();
         }
-        return copyrightYear;
+        return String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+    }
+    
+    private String getCopyrightBy(){
+        if(copyrightBy.isPresent()){
+            return copyrightBy.get();
+        }
+        return EMPTY;
     }
     
     private String getContextRoot(RequestInfo requestInfo){
-        if(contextRoot==null || contextRoot.isEmpty()){
-            this.contextRoot = getOriginalContextPath(requestInfo);
+        if(contextRoot.isPresent()){
+            return contextRoot.get();
         }
-        return contextRoot;
+        return getOriginalContextPath(requestInfo);
     }
     
     private boolean isKnownProperty(String key){
@@ -219,17 +227,17 @@ public class Templates {
     private static final String X_REQUEST_URI = "x-request-uri";
     private static final List<String> KNOWN_PROPERTIES = Arrays.asList(new String[]{"openapi.ui.serverVisibility","openapi.ui.exploreFormVisibility","openapi.ui.swaggerHeaderVisibility","openapi.ui.copyrightBy","openapi.ui.copyrightYear","openapi.ui.title","openapi.ui.contextRoot","openapi.ui.yamlUrl","openapi.ui.swaggerUiTheme"});
     
-    @Inject @ConfigProperty(name = "openapi.ui.copyrightBy", defaultValue = "")
-    private String copyrightBy;
+    @Inject @ConfigProperty(name = "openapi.ui.copyrightBy")
+    private Optional<String> copyrightBy;
     
-    @Inject @ConfigProperty(name = "openapi.ui.copyrightYear", defaultValue = "")
-    private String copyrightYear;
+    @Inject @ConfigProperty(name = "openapi.ui.copyrightYear")
+    private Optional<String> copyrightYear;
     
     @Inject @ConfigProperty(name = "openapi.ui.title", defaultValue = "MicroProfile - Open API")
     private String title;
     
-    @Inject @ConfigProperty(name = "openapi.ui.contextRoot", defaultValue = "")
-    private String contextRoot;
+    @Inject @ConfigProperty(name = "openapi.ui.contextRoot")
+    private Optional<String> contextRoot;
     
     @Inject @ConfigProperty(name = "openapi.ui.yamlUrl", defaultValue = "/openapi")
     private String yamlUrl;
