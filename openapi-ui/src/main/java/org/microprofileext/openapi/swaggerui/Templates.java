@@ -1,12 +1,13 @@
 package org.microprofileext.openapi.swaggerui;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -15,7 +16,6 @@ import java.util.logging.Level;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import lombok.Getter;
 import lombok.extern.java.Log;
@@ -32,10 +32,7 @@ public class Templates {
  
     @Getter
     private byte[] originalLogo = null;
-    @Getter
-    private byte[] favicon32 = null;
-    @Getter
-    private byte[] favicon16 = null;
+    
     @Getter
     private String style = null;
     
@@ -46,21 +43,9 @@ public class Templates {
     
     @PostConstruct
     public void afterCreate() {
-        BufferedImage image = getLogo();
-        BufferedImage image16 = getFavicon(16, image);
-        BufferedImage image32 = getFavicon(32, image);
-        try {
-            this.originalLogo = toBytes(image);
-            log.finest("OpenApi UI: Created logo");
-            this.favicon16 = toBytes(image16);
-            this.favicon32 = toBytes(image32);
-            log.finest("OpenApi UI: Created favicons");
-        } catch (IOException ex) {
-            log.log(Level.SEVERE, null, ex);
-        }
-        
-        this.style = getCss();
-        
+        this.originalLogo = getLogo();
+        log.finest("OpenApi UI: Created logo");
+        this.style = getCss();   
     }
     
     public String getSwaggerUIHtml(RequestInfo requestInfo){
@@ -68,11 +53,6 @@ public class Templates {
             this.swaggerUIHtml = parseHtmlTemplate(requestInfo);
         }
         return this.swaggerUIHtml;
-    }
-    
-    public byte[] getFavicon(int size){
-        if(size>24)return getFavicon32();
-        return getFavicon16();
     }
     
     private String parseHtmlTemplate(RequestInfo requestInfo){
@@ -131,14 +111,19 @@ public class Templates {
         }
     }
     
-    private BufferedImage getLogo(){
+    private byte[] getLogo(){
         if(whiteLabel.hasLogo())return whiteLabel.getLogo();
         
-        try(InputStream logo = this.getClass().getClassLoader().getResourceAsStream(FILE_LOGO)){
-            return ImageIO.read(logo);    
+        // Logo
+        InputStream logoStream = this.getClass().getClassLoader().getResourceAsStream(FILE_LOGO);
+        try{
+            if(logoStream!=null){
+                return logoStream.readAllBytes();
+            }
         } catch (IOException ex) {
-            return null;
+            log.warning(ex.getMessage());
         }
+        return null;
     }
     
     private String getCss() {
@@ -175,27 +160,6 @@ public class Templates {
             return toString(template);    
         } catch (IOException ex) {
             return EMPTY;
-        }
-    }
-    
-    private BufferedImage getFavicon(int size,BufferedImage original){
-        int type = original.getType() == 0? BufferedImage.TYPE_INT_ARGB : original.getType();
-        return resizeImage(size,original, type);
-    }
-    
-    private BufferedImage resizeImage(int size,BufferedImage originalImage, int type){
-	BufferedImage resizedImage = new BufferedImage(size, size, type);
-	Graphics2D g = resizedImage.createGraphics();
-	g.drawImage(originalImage, 0, 0, size, size, null);
-	g.dispose();
-
-	return resizedImage;
-    }
-    
-    private byte[] toBytes(BufferedImage bufferedImage) throws IOException{
-        try(ByteArrayOutputStream baos = new ByteArrayOutputStream()){
-            ImageIO.write(bufferedImage, PNG, baos);
-            return baos.toByteArray();
         }
     }
     
@@ -275,7 +239,6 @@ public class Templates {
     
     private static final String PERSENTAGE = "%";
     
-    private static final String PNG = "png";
     private static final String NL = "\n";
     private static final String EMPTY = "";
     private static final String FILE_TEMPLATE = "META-INF/resources/templates/template.html";

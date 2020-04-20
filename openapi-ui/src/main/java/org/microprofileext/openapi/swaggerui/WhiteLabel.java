@@ -1,15 +1,17 @@
 package org.microprofileext.openapi.swaggerui;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.imageio.ImageIO;
 import lombok.Getter;
 import lombok.extern.java.Log;
 
@@ -26,7 +28,7 @@ public class WhiteLabel {
     private final String HTML_FILE_NAME = "openapi.html";
     
     @Getter
-    private BufferedImage logo = null;
+    private byte[] logo = null;
     
     @Getter
     private String css = null;
@@ -39,7 +41,7 @@ public class WhiteLabel {
         // Logo
         try(InputStream logoStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(LOGO_FILE_NAME)){
             if(logoStream!=null){
-                this.logo = ImageIO.read(logoStream);
+                this.logo = logoStream.readAllBytes();
             }else{
                 log.log(Level.FINEST, "Can not load whilelable logo [{0}]", LOGO_FILE_NAME);
             }
