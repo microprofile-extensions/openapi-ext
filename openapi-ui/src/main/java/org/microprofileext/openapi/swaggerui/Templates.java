@@ -145,7 +145,7 @@ public class Templates {
         rawcss = rawcss.replaceAll(VAR_SERVER_VISIBILITY, serverVisibility);
         rawcss = rawcss.replaceAll(VAR_SERVER_VISIBILITY_BLOCK_SIZE, getServerVisibilityBlockSize());
         rawcss = rawcss.replaceAll(VAR_CREATED_WITH_VISIBILITY, createdWithVisibility);
-        rawcss = rawcss.replaceAll(VAR_MODELS_VISIBILITY, modelsVisibility);        
+        rawcss = rawcss.replaceAll(VAR_MODELS_VISIBILITY, modelsVisibility);
         return rawcss;
     }
     
