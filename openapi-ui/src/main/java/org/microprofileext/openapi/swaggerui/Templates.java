@@ -79,6 +79,10 @@ public class Templates {
         html = html.replaceAll(VAR_TITLE, title);
         html = html.replaceAll(VAR_SWAGGER_THEME, swaggerUiTheme);
         
+        if ("hidden".equalsIgnoreCase(modelsVisibility)) {
+        	String domId = "dom_id: '#swagger-ui',";
+        	html = html.replaceAll(domId, domId + "\n                    defaultModelsExpandDepth: -1,");
+        }
         return html;
     }
     
@@ -145,7 +149,7 @@ public class Templates {
         rawcss = rawcss.replaceAll(VAR_SERVER_VISIBILITY, serverVisibility);
         rawcss = rawcss.replaceAll(VAR_SERVER_VISIBILITY_BLOCK_SIZE, getServerVisibilityBlockSize());
         rawcss = rawcss.replaceAll(VAR_CREATED_WITH_VISIBILITY, createdWithVisibility);
-        rawcss = rawcss.replaceAll(VAR_MODELS_VISIBILITY, modelsVisibility);
+        
         return rawcss;
     }
     
@@ -239,7 +243,7 @@ public class Templates {
     private static final String VAR_SERVER_VISIBILITY = "%serverVisibility%";
     private static final String VAR_SERVER_VISIBILITY_BLOCK_SIZE = "%serverVisibilityBlockSize%";
     private static final String VAR_CREATED_WITH_VISIBILITY = "%createdWithVisibility%";
-    private static final String VAR_MODELS_VISIBILITY = "%modelsVisibility%";
+    
     private static final String PERSENTAGE = "%";
     
     private static final String NL = "\n";
