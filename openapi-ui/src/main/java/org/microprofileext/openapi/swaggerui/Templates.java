@@ -145,7 +145,7 @@ public class Templates {
         rawcss = rawcss.replaceAll(VAR_SERVER_VISIBILITY, serverVisibility);
         rawcss = rawcss.replaceAll(VAR_SERVER_VISIBILITY_BLOCK_SIZE, getServerVisibilityBlockSize());
         rawcss = rawcss.replaceAll(VAR_CREATED_WITH_VISIBILITY, createdWithVisibility);
-        
+        rawcss = rawcss.replaceAll(VAR_MODELS_VISIBILITY, modelsVisibility);        
         return rawcss;
     }
     
@@ -221,6 +221,9 @@ public class Templates {
     @Inject @ConfigProperty(name = "openapi.ui.createdWithVisibility", defaultValue = "visible")
     private String createdWithVisibility;
     
+    @Inject @ConfigProperty(name = "openapi.ui.modelsVisibility", defaultValue = "visible")
+    private String modelsVisibility;
+    
     @Inject 
     private Config config;
 
@@ -236,7 +239,7 @@ public class Templates {
     private static final String VAR_SERVER_VISIBILITY = "%serverVisibility%";
     private static final String VAR_SERVER_VISIBILITY_BLOCK_SIZE = "%serverVisibilityBlockSize%";
     private static final String VAR_CREATED_WITH_VISIBILITY = "%createdWithVisibility%";
-    
+    private static final String VAR_MODELS_VISIBILITY = "%modelsVisibility%";
     private static final String PERSENTAGE = "%";
     
     private static final String NL = "\n";
