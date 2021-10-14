@@ -71,7 +71,3 @@ body {
     margin: unset;
     padding: 0px;
 }
-
-.swagger-ui section.models {    
-    visibility: %modelsVisibility%;
-}
