@@ -79,6 +79,10 @@ public class Templates {
         html = html.replaceAll(VAR_TITLE, title);
         html = html.replaceAll(VAR_SWAGGER_THEME, swaggerUiTheme);
         
+        if ("hidden".equalsIgnoreCase(modelsVisibility)) {
+        	String domId = "dom_id: '#swagger-ui',";
+        	html = html.replaceAll(domId, domId + "\n                    defaultModelsExpandDepth: -1,");
+        }
         return html;
     }
     
@@ -220,6 +224,9 @@ public class Templates {
     
     @Inject @ConfigProperty(name = "openapi.ui.createdWithVisibility", defaultValue = "visible")
     private String createdWithVisibility;
+    
+    @Inject @ConfigProperty(name = "openapi.ui.modelsVisibility", defaultValue = "visible")
+    private String modelsVisibility;
     
     @Inject 
     private Config config;
