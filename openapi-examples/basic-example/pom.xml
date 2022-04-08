@@ -2,22 +2,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.microprofile-ext</groupId>
-        <artifactId>openapi-ext</artifactId>
+        <groupId>org.microprofile-ext.examples</groupId>
+        <artifactId>openapi-examples</artifactId>
         <version>1.1.6-SNAPSHOT</version>
     </parent>
-    
+
     <groupId>org.microprofile-ext.openapi-ext</groupId>
     <artifactId>openapi-example</artifactId>
     <packaging>war</packaging>
-    
+
     <name>Microprofile OpenApi Extensions :: Example</name>
     <description>A example application to demonstrate the extension</description>
     
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -26,7 +26,7 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
-    
+
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>
