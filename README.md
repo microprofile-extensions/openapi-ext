@@ -9,6 +9,7 @@ Here you will find some extra tools for Open API
 
 * [OpenApi UI](https://github.com/microprofile-extensions/openapi-ext/blob/master/openapi-ui/README.md)
 
-## Example
+## Examples
 
-Also look at the [example application](https://github.com/microprofile-extensions/openapi-ext/blob/master/openapi-example/README.md) to see how this is used
+Also look at the [example application](https://github.com/microprofile-extensions/openapi-ext/blob/master/openapi-examples/basic-example/README.md) to see how this is used.
+[Helidon example](https://github.com/microprofile-extensions/openapi-ext/blob/master/openapi-examples/helidon-basic-example/README.md) demonstrate OpenApi usage with Helidon MicroProfile.

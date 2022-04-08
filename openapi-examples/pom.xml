@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.microprofile-ext</groupId>
+        <artifactId>openapi-ext</artifactId>
+        <version>1.1.6-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.microprofile-ext.examples</groupId>
+    <artifactId>openapi-examples</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Microprofile OpenApi Extensions :: Examples</name>
+    <description>Module containing OpenApi Extension examples</description>
+
+    <properties>
+        <helidon.version>2.4.2</helidon.version>
+        <jackson.databind.version>2.13.1</jackson.databind.version>
+        <lib.junit.version>5.7.0</lib.junit.version>
+
+        <!-- plugins version -->
+        <helidon.plugin.version>2.3.3</helidon.plugin.version>
+        <jandex.plugin.version>1.0.6</jandex.plugin.version>
+        <jar.plugin.version>3.0.2</jar.plugin.version>
+        <dependency.plugin.version>3.1.2</dependency.plugin.version>
+        <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>
+    </properties>
+
+    <modules>
+        <module>basic-example</module>
+        <module>helidon-features-example</module>
+        <module>helidon-basic-example</module>
+    </modules>
+
+</project>
