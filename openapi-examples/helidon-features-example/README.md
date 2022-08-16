@@ -4,6 +4,10 @@
 
 This is a basic helidon application to demonstrate several features of the OpenApi extensions with Helidon.
 
+## Requirement
+
+To build the example, you need JDK 11 and Maven 3.8.4.
+
 ## Presentation
 
 Based on Helidon MP quickstart application, this example uses Openapi UI extension features. It exposes the greeting
@@ -20,3 +24,5 @@ Using maven, you can start this application this way:
 ```
 
 You can then go to http://localhost:8080/myopenapi/openapi-ui/ 
+
+Press `ctrl+C` to stop the application.
