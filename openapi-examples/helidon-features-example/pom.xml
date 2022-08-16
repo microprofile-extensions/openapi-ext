@@ -18,6 +18,8 @@
 
     <properties>
         <mainClass>io.helidon.microprofile.cdi.Main</mainClass>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
     </properties>
 
     <dependencies>
