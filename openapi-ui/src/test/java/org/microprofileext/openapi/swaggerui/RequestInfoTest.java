@@ -1,7 +1,8 @@
 package org.microprofileext.openapi.swaggerui;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test all the types of paths

@@ -15,13 +15,13 @@
     <description>Module containing OpenApi Extension examples</description>
 
     <properties>
-        <helidon.version>2.4.2</helidon.version>
-        <jackson.databind.version>2.13.1</jackson.databind.version>
+        <helidon.version>3.0.1</helidon.version>
+        <jackson.databind.version>2.13.4</jackson.databind.version>
         <lib.junit.version>5.7.0</lib.junit.version>
 
         <!-- plugins version -->
-        <helidon.plugin.version>2.3.3</helidon.plugin.version>
-        <jandex.plugin.version>1.0.6</jandex.plugin.version>
+        <helidon.plugin.version>3.0.1</helidon.plugin.version>
+        <jandex.plugin.version>1.2.3</jandex.plugin.version>
         <jar.plugin.version>3.0.2</jar.plugin.version>
         <dependency.plugin.version>3.1.2</dependency.plugin.version>
         <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>

@@ -43,7 +43,7 @@
             </activation>
             
             <properties>
-                <thorntail.version>2.6.0.Final</thorntail.version>
+                <thorntail.version>2.7.0.Final</thorntail.version>
                 <thorntail.configDir>${basedir}${file.separator}src${file.separator}main${file.separator}resources</thorntail.configDir>
             </properties>
             
@@ -143,8 +143,8 @@
             
             <properties>
                 <!-- payara-micro properties -->
-                <payara-micro.maven.version>1.0.3</payara-micro.maven.version>
-                <payara-micro.version>5.194</payara-micro.version>
+                <payara-micro.maven.version>1.4.0</payara-micro.maven.version>
+                <payara-micro.version>5.2022.3</payara-micro.version>
                 <payara-micro.installDir>${java.io.tmpdir}${file.separator}${project.artifactId}${file.separator}payara-micro</payara-micro.installDir>
                 <payara-micro.configDir>${basedir}${file.separator}src${file.separator}main${file.separator}payara-micro${file.separator}config</payara-micro.configDir>
                 <payara-micro.logsDir>${payara-micro.installDir}${file.separator}logs</payara-micro.logsDir>
@@ -161,7 +161,7 @@
                     </dependency>
                 </dependencies>
             </dependencyManagement>
-            
+
             <dependencies>
                 <!-- Payara -->
                 <dependency>
@@ -185,6 +185,13 @@
                                 <version>${payara-micro.version}</version>
                             </artifactItem>
                             <payaraVersion>${payara-micro.version}</payaraVersion>
+                            <!-- Added due to: -->
+                            <!-- https://stackoverflow.com/questions/18747134/getting-cant-assign-requested-address-java-net-socketexception-using-ehcache -->
+                            <javaCommandLineOptions>
+                                <option>
+                                    <value>-Djava.net.preferIPv4Stack=true</value>
+                                </option>
+                            </javaCommandLineOptions>
                             <commandLineOptions>
                                 <option>
                                     <key>--rootdir</key>
@@ -232,13 +239,13 @@
             <properties>
                 <log.name>org.microprofileext.config</log.name>
                 <log.level>FINEST</log.level>
-                <openliberty.version>19.0.0.11</openliberty.version>
+                <openliberty.version>22.0.0.10</openliberty.version>
                 <openliberty.http.port>8080</openliberty.http.port>
                 <openliberty.https.port>8443</openliberty.https.port>
                 <openliberty.installDir>${java.io.tmpdir}${file.separator}${project.artifactId}${file.separator}openliberty</openliberty.installDir>
                 <openliberty.configDir>${basedir}${file.separator}src${file.separator}main${file.separator}openliberty${file.separator}config</openliberty.configDir>
                 <openliberty.logsDir>${openliberty.installDir}${file.separator}wlp${file.separator}usr${file.separator}servers${file.separator}defaultServer${file.separator}logs</openliberty.logsDir>
-                <openliberty.maven.version>2.7</openliberty.maven.version>
+                <openliberty.maven.version>3.0.M1</openliberty.maven.version>
             </properties>
             
             <build>
