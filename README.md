@@ -1,7 +1,6 @@
 # OpenApi Extensions
 
-[![build_status](https://app.travis-ci.com/microprofile-extensions/openapi-ext.svg?branch=main)](https://app.travis-ci.com/github/microprofile-extensions/openapi-ext)              
-[![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://github.com/microprofile-extensions/openapi-ext/blob/main/LICENSE)
+[![build_status](https://app.travis-ci.com/microprofile-extensions/openapi-ext.svg?branch=main)](https://app.travis-ci.com/github/microprofile-extensions/openapi-ext) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://github.com/microprofile-extensions/openapi-ext/blob/main/LICENSE)
 ___________
 Here you will find some extra tools for Open API
 
