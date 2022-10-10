@@ -1,5 +1,3 @@
-[Extensions for MicroProfile](https://www.microprofile-ext.org/)
-
 # OpenApi Extensions
 
 [![build_status](https://travis-ci.com/microprofile-extensions/openapi-ext.svg?branch=master)](https://travis-ci.com/microprofile-extensions/openapi-ext)
