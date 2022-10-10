@@ -6,13 +6,8 @@ This is a very basic example application to demonstrate the OpenApi extensions.
 
 ## Running the example.
 
-Using maven, you can start this application using Thorntail, Payara or OpenLiberty:
+Using maven, you can start this application using Payara or OpenLiberty:
 
-    
-```
-    mvn -Pthorntail clean install
-```
-or
 ```
     mvn -Ppayara clean install
 ```
