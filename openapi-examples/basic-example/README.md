@@ -1,4 +1,4 @@
-[Back to openapi-ext](https://github.com/microprofile-extensions/openapi-ext/blob/master/README.md)
+[Back to openapi-ext](https://github.com/microprofile-extensions/openapi-ext/blob/main/README.md)
 
 # Example Application
 
