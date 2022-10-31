@@ -61,6 +61,7 @@ public class Templates {
         html = html.replaceAll(VAR_CONTEXT_ROOT, getContextRoot(requestInfo));
         html = html.replaceAll(VAR_YAML_URL, yamlUrl);
         html = html.replaceAll(VAR_CURRENT_YEAR, getCopyrightYear());
+        html = html.replaceAll(VAR_OAUTH2_REDIRECT_URI, oauth2RedirectUri);
         
         // Dynamic whitelabel properties.
         try {
@@ -227,6 +228,10 @@ public class Templates {
     
     @Inject @ConfigProperty(name = "openapi.ui.modelsVisibility", defaultValue = "visible")
     private String modelsVisibility;
+
+  @Inject @ConfigProperty(name = "openapi.ui.oauth2RedirectUri",
+                          defaultValue = "/oauth2-redirect.html")
+  private String oauth2RedirectUri;
     
     @Inject 
     private Config config;
@@ -243,7 +248,8 @@ public class Templates {
     private static final String VAR_SERVER_VISIBILITY = "%serverVisibility%";
     private static final String VAR_SERVER_VISIBILITY_BLOCK_SIZE = "%serverVisibilityBlockSize%";
     private static final String VAR_CREATED_WITH_VISIBILITY = "%createdWithVisibility%";
-    
+    private static final String VAR_OAUTH2_REDIRECT_URI = "%oauth2RedirectUri%";
+
     private static final String PERSENTAGE = "%";
     
     private static final String NL = "\n";

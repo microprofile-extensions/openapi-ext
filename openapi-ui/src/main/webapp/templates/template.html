@@ -22,6 +22,7 @@
                 const ui = SwaggerUIBundle({
                     url: "%yamlUrl%",
                     dom_id: '#swagger-ui',
+                    oauth2RedirectUrl: "%oauth2RedirectUri%",
                     deepLinking: true,
                     presets: [
                         SwaggerUIBundle.presets.apis,
