@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.microprofile-ext</groupId>
         <artifactId>openapi-ext</artifactId>
-        <version>2.0.1-SNAPSHOT</version>
+        <version>2.1.0</version>
     </parent>
 
     <groupId>org.microprofile-ext.examples</groupId>
@@ -32,5 +32,23 @@
         <module>helidon-features-example</module>
         <module>helidon-basic-example</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-compiler-plugin</artifactId>
+                  <version>3.11.0</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

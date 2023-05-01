@@ -25,3 +25,7 @@ hs_err_pid*
 /openapi-example/target/
 /openapi-ui/target/
 /openapi-ui/nbproject/
+/openapi-examples/helidon-features-example/target/
+/openapi-examples/helidon-basic-example/target/
+/target/
+/openapi-examples/target/

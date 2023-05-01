@@ -6,7 +6,7 @@
     
     <groupId>org.microprofile-ext</groupId>
     <artifactId>openapi-ext</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>2.1.0</version>
     <packaging>pom</packaging>
     
     <name>Microprofile OpenAPI Extensions</name>
@@ -57,7 +57,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         
         <lombok.version>1.18.24</lombok.version>
-        <microProfile.version>5.0</microProfile.version>
+        <microProfile.version>6.0</microProfile.version>
     </properties>
     
     <dependencyManagement>
@@ -113,7 +113,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.8</version>
+                        <version>1.6.13</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
