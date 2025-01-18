@@ -15,8 +15,8 @@
     <description>A (swagger) UI for MicroProfile Open API</description>
     
     <properties>
-        <swagger-ui.version>4.14.2</swagger-ui.version>
-        <swagger.ui.themes.version>3.0.0</swagger.ui.themes.version>
+        <swagger-ui.version>5.18.2</swagger-ui.version>
+        <swagger.ui.themes.version>3.0.1</swagger.ui.themes.version>
     </properties>
     
     <dependencies>
@@ -85,7 +85,7 @@
                             <outputDirectory>${project.build.directory}/classes</outputDirectory>
                         </artifactItem>
                         <artifactItem>
-                            <groupId>org.webjars.bower</groupId>
+                            <groupId>org.webjars.npm</groupId>
                             <artifactId>swagger-ui-themes</artifactId>
                             <version>${swagger.ui.themes.version}</version>
                             <type>jar</type>
