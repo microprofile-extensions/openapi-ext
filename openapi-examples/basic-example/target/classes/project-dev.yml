@@ -1,5 +1,0 @@
-thorntail:
-    logging:
-        loggers:
-            org.microprofileext.openapi:
-                level: FINEST
